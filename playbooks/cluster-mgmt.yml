@@ -1,5 +1,6 @@
 - name: "Manage Clusters"
-  hosts: "{{ target_hosts }}"
+  #hosts: "{{ target_hosts }}"
+  hosts: aap-ready
   connection: local
   gather_facts: false
   tasks:
@@ -14,6 +15,10 @@
           vars:
             namespace_name: "{{ namespace }}"
             state: "{{ state }}"
+        - include_role: 
+            name: ../roles/label-cluster
+          vars:
+            state: "patched"
       always:
         - include_tasks: ../roles/k8s-cluster-access/tasks/remove-access.yml
           ignore_errors: true
