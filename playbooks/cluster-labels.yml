@@ -1,0 +1,12 @@
+- name: "Manage Clusters"
+  #hosts: "{{ target_hosts }}"
+  hosts: aap-ready
+  connection: local
+  gather_facts: false
+  tasks:
+    - block: 
+        - include_role: 
+            name: ../roles/label-cluster
+          vars:
+            state: "patched"
+            applied_label: "{{ applied_label }}"

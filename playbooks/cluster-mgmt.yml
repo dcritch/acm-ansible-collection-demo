@@ -19,6 +19,7 @@
             name: ../roles/label-cluster
           vars:
             state: "patched"
+            applied_label: "{{ applied_label }}"
       always:
         - include_tasks: ../roles/k8s-cluster-access/tasks/remove-access.yml
           ignore_errors: true
