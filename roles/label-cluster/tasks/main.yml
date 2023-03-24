@@ -9,4 +9,4 @@
       definition:
         metadata:
           labels:
-            "{{ applied_label }}"
+            ansible-done: ""
