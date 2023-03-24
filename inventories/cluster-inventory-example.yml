@@ -27,6 +27,7 @@ cluster_groups:
   - name!=local-cluster
   - ztp-ansible!=running
   - ztp-ansible!=done
+  - ztp-done=
   #- aap-running
   #- name!=aap-done
  
