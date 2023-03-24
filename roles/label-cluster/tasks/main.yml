@@ -6,7 +6,7 @@
       #api_key: "{{ managed_serviceaccount.token }}"
       api_version: cluster.open-cluster-management.io/v1
       kind: ManagedCluster
-      name: "{{ host }}"
+      name: "{{ ansible_host }}"
       definition:
         metadata:
           labels:
