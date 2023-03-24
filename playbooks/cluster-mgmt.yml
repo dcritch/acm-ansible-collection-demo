@@ -5,6 +5,11 @@
   gather_facts: false
   tasks:
     - block: 
+        - include_role: 
+            name: ../roles/label-cluster
+          vars:
+            state: "patched"
+            applied_label: {"ztp-ansible":"running"}
         - include_tasks: ../roles/k8s-cluster-access/tasks/get-temp-access.yml
           vars:
             rbac_template: ../k8s-rbac/namespace-mgmt
@@ -15,11 +20,11 @@
           vars:
             namespace_name: "{{ namespace }}"
             state: "{{ state }}"
-        - include_role: 
+        - include_role:
             name: ../roles/label-cluster
           vars:
             state: "patched"
-            applied_label: "{{ applied_label }}"
+            applied_label: {"ztp-ansible":"done"}
       always:
         - include_tasks: ../roles/k8s-cluster-access/tasks/remove-access.yml
           ignore_errors: true
