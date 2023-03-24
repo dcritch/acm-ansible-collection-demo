@@ -5,6 +5,7 @@
   gather_facts: false
   tasks:
     - block: 
+        - debug: var=applied_label
         - include_role: 
             name: ../roles/label-cluster
           vars:
