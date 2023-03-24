@@ -10,4 +10,4 @@
       definition:
         metadata:
           labels:
-            '{{ applied_label }}'
+            "{{ applied_label }}"
