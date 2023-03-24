@@ -1,0 +1,9 @@
+apiVersion: tower.ansible.com/v1alpha1
+kind: AnsibleJob
+metadata:
+  name: ztp-day2-automation
+spec:
+  tower_auth_secret: aap-controller-token
+  job_template_name: ztp-day2-automation-template
+#    extra_vars:
+#      target_clusters: {{ list.of.clusters }}     <-- array provided by ACM with an entry for each managed cluster that is affected
