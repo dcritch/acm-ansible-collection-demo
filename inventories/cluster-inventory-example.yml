@@ -25,7 +25,7 @@ cluster_groups:
 - name: aap-ready
   label_selectors:
   - name!=local-cluster
-  - name!=ztp-running
+  #- name!=ztp-running
   - name=ztp-done
   #- name!=aap-running
   #- name!=aap-done
