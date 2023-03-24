@@ -27,6 +27,6 @@ cluster_groups:
   - name!=local-cluster
   - name!=ztp-running
   - name=ztp-done
-  - name!=aap-running
-  - name!=aap-done
+  #- name!=aap-running
+  #- name!=aap-done
  
