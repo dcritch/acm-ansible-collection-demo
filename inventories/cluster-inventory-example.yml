@@ -22,3 +22,11 @@ cluster_groups:
 - name: all-managed-clusters
   label_selectors:
   - name!=local-cluster
+- name: aap-ready
+  label_selectors:
+  - name!=local-cluster
+  - name!=ztp-running
+  - name=ztp-done
+  - name!=aap-running
+  - name!=aap-done
+ 
