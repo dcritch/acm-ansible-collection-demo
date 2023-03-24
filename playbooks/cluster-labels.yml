@@ -9,4 +9,4 @@
             name: ../roles/label-cluster
           vars:
             state: "patched"
-            applied_label: "ztp-ansible=done"
+            applied_label: "{{ applied_label }}"
