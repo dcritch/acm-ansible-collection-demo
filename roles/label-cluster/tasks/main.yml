@@ -10,4 +10,5 @@
       definition:
         metadata:
           labels:
-            "{{ applied_label }}"
+            ztp-ansible=done
+  #          "{{ applied_label }}"
