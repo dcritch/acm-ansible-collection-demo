@@ -29,6 +29,6 @@
           vars:
             state: "patched"
             applied_label: {"ztp-ansible":"done"}
-      always:
-        - include_tasks: ../roles/k8s-cluster-access/tasks/remove-access.yml
-          ignore_errors: true
+#      always:
+#        - include_tasks: ../roles/k8s-cluster-access/tasks/remove-access.yml
+#          ignore_errors: true
