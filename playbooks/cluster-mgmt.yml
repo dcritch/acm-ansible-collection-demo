@@ -1,5 +1,4 @@
 - name: "Manage Clusters"
-  #hosts: "{{ target_hosts }}"
   hosts: aap-ready
   connection: local
   gather_facts: false
@@ -20,6 +19,11 @@
           vars:
             namespace_name: "{{ namespace }}"
             state: "{{ state }}"
+        - include_tasks: ../roles/k8s-cluster-access/tasks/get-static-access.yml
+          vars:
+            rbac_template: ../k8s-rbac/cluster-admin
+            serviceaccount_name: cluster-admin
+        - include_tasks: ../roles/k8s-cluster-access/tasks/generate-kubeconfig.yml
         - include_role:
             name: ../roles/label-cluster
           vars:
