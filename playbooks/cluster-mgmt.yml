@@ -9,26 +9,18 @@
           vars:
             state: "patched"
             applied_label: {"ztp-ansible":"running"}
-        - include_tasks: ../roles/k8s-cluster-access/tasks/get-temp-access.yml
+        - include_tasks: ../roles/k8s-cluster-access/tasks/get-static-access.yml
           vars:
-            rbac_template: ../k8s-rbac/namespace-mgmt
-            serviceaccount_generate_name: "cluster-mgmt-"
-            ttl: 60
+            rbac_template: ../k8s-rbac/cluster-admin
+            serviceaccount_name: cluster-admin
         - include_role: 
             name: ../roles/create-namespace
           vars:
             namespace_name: "{{ namespace }}"
             state: "{{ state }}"
-        - include_tasks: ../roles/k8s-cluster-access/tasks/get-static-access.yml
-          vars:
-            rbac_template: ../k8s-rbac/cluster-admin
-            serviceaccount_name: cluster-admin
         - include_tasks: ../roles/k8s-cluster-access/tasks/generate-kubeconfig.yml
         - include_role:
             name: ../roles/label-cluster
           vars:
             state: "patched"
             applied_label: {"ztp-ansible":"done"}
-#      always:
-#        - include_tasks: ../roles/k8s-cluster-access/tasks/remove-access.yml
-#          ignore_errors: true
