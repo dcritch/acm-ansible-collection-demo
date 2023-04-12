@@ -25,7 +25,7 @@ cluster_groups:
 - name: aap-ready
   label_selectors:
   - name!=local-cluster
+  - ztp-done=
   - ztp-ansible!=running
   - ztp-ansible!=done
-  - ztp-done=
  
